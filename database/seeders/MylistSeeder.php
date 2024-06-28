@@ -3,16 +3,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Mylist;
 
-class DatabaseSeeder extends Seeder
+class MylistSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call(BookSeeder::class);
+        Mylist::factory()->count(10)->create();
     }
 }

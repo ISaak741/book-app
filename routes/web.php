@@ -7,6 +7,7 @@ use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\WriterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MylistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,7 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-
+ 
 Route::get('/books', function () {
     return view('books');
 })->name('books.search');
@@ -69,3 +70,11 @@ Route::get('/books', function () {
 Route::get('/book/display', function () {
     return view('book-details');
 })->name('book.display');
+
+Route::get('/books/search',[BookController::class, 'search']);
+Route::get('mylist',function(){
+    return view('mes-livres');
+});
+Route::get('/books/my-books', [MylistController::class, 'showBooks'])->name('books.reading');
+Route::post('/mylist/add', [MylistController::class, 'addToList'])->name('mylist.add');
+Route::get('book/display/{id}',[BookController::class, 'show']);
