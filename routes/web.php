@@ -77,4 +77,4 @@ Route::get('mylist',function(){
 });
 Route::get('/books/my-books', [MylistController::class, 'showBooks'])->name('books.reading');
 Route::post('/mylist/add', [MylistController::class, 'addToList'])->name('mylist.add');
-Route::get('book/display/{id}',[BookController::class, 'show']);
+Route::get('book/display/{id}',[BookController::class, 'show'])->name('book.show');

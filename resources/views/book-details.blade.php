@@ -98,6 +98,11 @@
     </nav>
     <main>
         <section class="container">
+            @if (session()->has('message'))
+                <div class="alert alert-danger my-3">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="card my-5 border-0">
                 <div class="row g-0">
                     <div class="col-md-4 p-3 border border-1 d-flex justify-content-center align-items-center">
