@@ -101,25 +101,25 @@
             <div class="card my-5 border-0">
                 <div class="row g-0">
                     <div class="col-md-4 p-3 border border-1 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('img/books/book-2.jpg') }}" class="img-fluid rounded-start" width="250"
+                        <img src="{{ asset("storage/$book->picture") }}" class="img-fluid rounded-start" width="250"
                             height="300" />
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h2 class="card-title fw-bold">{{$book->title}}</h2>
-                            <p class="text-body-secondary fs-3">{{$book->genre}}</p>
-                            <p class="fs-6">{{$book->language}}</p>
+                            <h2 class="card-title fw-bold">{{ $book->title }}</h2>
+                            <p class="text-body-secondary fs-3">{{ $book->genre }}</p>
+                            <p class="fs-6">{{ $book->language }}</p>
                             <p class="card-text mt-3 text-dark">
-                                {{$book->description}}
+                                {{ $book->description }}
                             </p>
                             <div>
-                            <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                <button class="btn bg-green px-4 mt-5 text-white shadow fw-bold">
-                                    Ajouter
-                                </button>
-                            </form>
+                                <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                    <button class="btn bg-green px-4 mt-5 text-white shadow fw-bold">
+                                        Ajouter
+                                    </button>
+                                </form>
                             </div>
                             <div class="mt-4 fs-4">
                                 <i class="bi bi-star-fill text-green"></i><i class="bi bi-star-fill text-green"></i><i
