@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -29,7 +30,17 @@ class BookController extends Controller
             'picture' => "covers/$pictureName",
             'writer_id' => 1,
         ]);
-
-        return redirect()->route('book.upload')->with('success', "$book->title a été bien téléverser");
+        return redirect()->route('book.upload.submit')->with('success', "$book->title a été bien téléverselr");
+    }
+    public function search(Request $request) {
+        $query = $request->input('query');
+        $books = Book::where('title', 'LIKE', '%' . $query . '%')->get();
+        return response()->json([
+            'books' => $books
+        ]);
+    }
+    public function show($id){
+        $book = Book::where('id', $id)->first();
+        return view('book-details',['book'=>$book]);
     }
 }

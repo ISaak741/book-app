@@ -106,22 +106,20 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h2 class="card-title fw-bold">Monster Killer</h2>
-                            <p class="text-body-secondary fs-3">Horror</p>
-                            <p class="fs-6">Anglais</p>
+                            <h2 class="card-title fw-bold">{{$book->title}}</h2>
+                            <p class="text-body-secondary fs-3">{{$book->genre}}</p>
+                            <p class="fs-6">{{$book->language}}</p>
                             <p class="card-text mt-3 text-dark">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Deserunt officia aut sed consequatur sequi pariatur asperiores
-                                odio quam magnam corrupti minus, optio quos ut tempora
-                                voluptas totam? Odit, ab minima itaque suscipit impedit
-                                provident fugiat deleniti alias, fugit necessitatibus quos
-                                ratione quam ea neque corrupti in. Consequatur nemo
-                                perspiciatis sunt?
+                                {{$book->description}}
                             </p>
                             <div>
+                            <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="book_id" value="{{ $book->id }}">
                                 <button class="btn bg-green px-4 mt-5 text-white shadow fw-bold">
                                     Ajouter
                                 </button>
+                            </form>
                             </div>
                             <div class="mt-4 fs-4">
                                 <i class="bi bi-star-fill text-green"></i><i class="bi bi-star-fill text-green"></i><i
