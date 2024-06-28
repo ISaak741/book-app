@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('genre');
-            $table->enum('language', ['ar', 'en', 'fr', 'esp']);
+            $table->string('language');
             $table->longText('description');
             $table->string('file');
             $table->string('picture');
