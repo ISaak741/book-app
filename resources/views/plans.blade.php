@@ -106,7 +106,7 @@
 
 </html>
 
-<form class="modal fade" id="paymentFormBasique" method="POST" action="action="{{ route("register.$type.submit") }}""
+<form class="modal fade" id="paymentFormBasique" method="POST" action="{{ route("register.$type.submit") }}"
     tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     @csrf
     <input type="hidden" name="pack-type" value="basique">
@@ -122,12 +122,12 @@
                 <div class="mb-5">
                     <h2 class="text-center">
                         <span class="text-blue text-uppercase me-3 fw-bold">total</span>
-                        <span class="text-secondary"><span class="fw-bold">0</span> <sub>DA</sub></span>
+                        <span class="text-secondary"><span class="fw-bold">3 999</span> <sub>DA</sub></span>
                     </h2>
                 </div>
                 <div class="form-group d-flex align-items-center mb-2">
                     <label for="card" class="form-label w-35 me-1">Numéro de la carte de crédit</label>
-                    <input id="card" type="number" class="form-control w-50" required />
+                    <input id="card" type="number" class="form-control w-50" maxlength="16" required />
                 </div>
                 <div class="form-group d-flex align-items-center mb-2">
                     <label class="form-label w-35 me-1">Date d'expiration</label>
@@ -180,9 +180,8 @@
     </div>
 </form>
 
-<form class="modal fade" id="paymentFormPremium" method="POST"
-    action="action="{{ route("register.$type.submit") }}"" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<form class="modal fade" id="paymentFormPremium" method="POST" action="{{ route("register.$type.submit") }}"
+    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     @csrf
     <input type="hidden" name="pack-type" value="premium">
     <div class="modal-dialog modal-lg">
@@ -197,12 +196,12 @@
                 <div class="mb-5">
                     <h2 class="text-center">
                         <span class="text-blue text-uppercase me-3 fw-bold">total</span>
-                        <span class="text-secondary"><span class="fw-bold">0</span> <sub>DA</sub></span>
+                        <span class="text-secondary"><span class="fw-bold">7 999</span> <sub>DA</sub></span>
                     </h2>
                 </div>
                 <div class="form-group d-flex align-items-center mb-2">
                     <label for="card" class="form-label w-35 me-1">Numéro de la carte de crédit</label>
-                    <input id="card" type="number" class="form-control w-50" required />
+                    <input id="card" type="number" class="form-control w-50" maxlength="16" required />
                 </div>
                 <div class="form-group d-flex align-items-center mb-2">
                     <label class="form-label w-35 me-1">Date d'expiration</label>

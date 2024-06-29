@@ -31,7 +31,7 @@ class BookController extends Controller
             'picture' => "covers/$pictureName",
             'writer_id' => 1,
         ]);
-        return redirect()->route('book.upload.submit')->with('success', "$book->title a été bien téléverselr");
+        return redirect()->route('book.upload.submit')->with('success', "$book->title a été bien téléverser");
     }
     public function search(Request $request)
     {

@@ -176,7 +176,7 @@
                     <div class="form-field mb-2">
                         <label class="form-label">Rédiger un résume</label>
                         <textarea style="resize: none !important" name="description" rows="5" class="form-control"
-                            placeholder="Entre 150 et 300 mots" value="{{ old('description') }}"></textarea>
+                            placeholder="Entre 150 et 300 mots">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="text-danger">
                                 {{ $message }}

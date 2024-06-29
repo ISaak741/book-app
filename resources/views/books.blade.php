@@ -97,7 +97,7 @@
         </div>
     </nav>
     <main class="row">
-        <section class="col-3 bg-lighter shadow">
+        <section class="col-3 bg-lighter shadow pb-5">
             <div class="px-4">
                 <div style="margin-top: 5rem !important">
                     <div class="input-group shadow-sm">
@@ -107,56 +107,57 @@
                         </div>
                     </div>
                 </div>
-            <div id="categorie">
-                <h5 class="mt-5 fw-bold">Catégorie</h5>
-                <hr />
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="animeCheckbox">
-                    <label class="form-check-label" for="animeCheckbox">Anime</label>
+                <div id="categorie">
+                    <h5 class="mt-5 fw-bold">Catégorie</h5>
+                    <hr />
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="animeCheckbox">
+                        <label class="form-check-label" for="animeCheckbox">Anime</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="horrorCheckbox">
+                        <label class="form-check-label" for="horrorCheckbox">Horror</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="histoireCheckbox">
+                        <label class="form-check-label" for="histoireCheckbox">Histoire</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="enfantCheckbox">
+                        <label class="form-check-label" for="enfantCheckbox">Enfant</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="romaneCheckbox">
+                        <label class="form-check-label" for="romaneCheckbox">Romane</label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="horrorCheckbox">
-                    <label class="form-check-label" for="horrorCheckbox">Horror</label>
+                <div id="language" class="mt-4">
+                    <h5 class="mt-5 fw-bold">Language</h5>
+                    <hr />
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="arabeCheckbox" />
+                        <label class="form-check-label" for="arabeCheckbox">Arabe</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="anglaisCheckbox" />
+                        <label class="form-check-label" for="anglaisCheckbox">Anglais</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="francaisCheckbox" />
+                        <label class="form-check-label" for="françaisCheckbox">Francais</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input border-secondary" id="espagnolCheckbox" />
+                        <label class="form-check-label" for="espagnolCheckbox">Espagnol</label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="histoireCheckbox">
-                    <label class="form-check-label" for="histoireCheckbox">Histoire</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="enfantCheckbox">
-                    <label class="form-check-label" for="enfantCheckbox">Enfant</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="romaneCheckbox">
-                    <label class="form-check-label" for="romaneCheckbox">Romane</label>
-                </div>
-            </div>
-            <div id="language" class="mt-4">
-                <h5 class="mt-5 fw-bold">Language</h5>
-                <hr />
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="arabeCheckbox" />
-                    <label class="form-check-label" for="arabeCheckbox">Arabe</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="anglaisCheckbox" />
-                    <label class="form-check-label" for="anglaisCheckbox">Anglais</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="francaisCheckbox" />
-                    <label class="form-check-label" for="françaisCheckbox">Francais</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input border-secondary" id="espagnolCheckbox" />
-                    <label class="form-check-label" for="espagnolCheckbox">Espagnol</label>
-                </div>
-            </div>
         </section>
         <section class="col-9 row g-4 pb-5">
-            
+
         </section>
     </main>
-    <footer class="bg-green-secondary d-flex justify-content-center align-items-center" style="height: 80px">
+    <footer class="bg-green-secondary d-flex justify-content-center align-items-center sticky-bottom position-sticky"
+        style="height: 80px">
         <div class="container d-flex align-items-center justify-content-center">
             <p class="text-white mt-2">@2024 Ghezyid eBook</p>
         </div>

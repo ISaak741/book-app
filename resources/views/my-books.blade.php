@@ -151,7 +151,6 @@
                                             class="bi bi-star-fill text-green"></i>
                                         <i class="bi bi-star text-secondary"></i>
                                         <i class="bi bi-star text-secondary"></i>
-                                        <i class="bi bi-star text-secondary"></i>
                                     </div>
                                 @endisset
                                 <a href="{{ route('book.readNow', ['id' => $book->id]) }}"
@@ -171,8 +170,9 @@
             @endforelse
         </div>
     </main>
-    <footer class="bg-green-secondary d-flex justify-content-center align-items-center"
-        style="height: 80px; margin-top: 10rem !important">
+    <footer
+        class="bg-green-secondary d-flex justify-content-center w-100 align-items-center sticky-bottom position-sticky"
+        style="height: 80px; margin-top: 10rem !important; ">
         <div class="container d-flex align-items-center justify-content-center">
             <p class="text-white mt-2">@2024 Ghezyid eBook</p>
         </div>

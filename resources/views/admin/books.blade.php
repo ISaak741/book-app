@@ -92,8 +92,10 @@
                                 <td>3/5</td>
                             </tr>
                         @empty
-                            <tr colspan="5">
-                                <div class="text-warning">0 livres</div>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="text-bg-warning text-center">0 livres</div>
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>

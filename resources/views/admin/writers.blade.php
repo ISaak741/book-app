@@ -122,8 +122,10 @@
                                 <td>{{ $writer->mylist()->count() }}</td>
                             </tr>
                         @empty
-                            <tr colspan="6">
-                                <div class="text-warning">0 ecrivains</div>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="text-bg-warning text-center">0 livres</div>
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>

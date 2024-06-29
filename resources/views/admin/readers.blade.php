@@ -97,8 +97,10 @@
                                 <td>{{ $reader->mylist()->count() }}</td>
                             </tr>
                         @empty
-                            <tr colspan="4">
-                                <div class="text-warning">0 lisuers</div>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="text-bg-warning text-center">0 livres</div>
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
