@@ -20,4 +20,9 @@ class Plan extends Model
     {
         return $this->belongsTo(Writer::class, 'userId');
     }
+
+    public function reader()
+    {
+        return $this->belongsTo(Reader::class, 'userId');
+    }
 }

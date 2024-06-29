@@ -119,7 +119,7 @@
                                         class="badge {{ $planType == 'Gratuit' ? 'bg-danger' : ($planType == 'Basique' ? 'bg-success' : 'bg-warning') }} ">
                                         {{ $planType }}</div>
                                 </td>
-                                <td>{{ $writer->mylist()->count() }}</td>
+                                <td>{{ $writer->mylist()->where('user_id', $writer->id)->count() }}</td>
                             </tr>
                         @empty
                             <tr>

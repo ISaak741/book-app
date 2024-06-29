@@ -88,7 +88,7 @@
                                 <td>{{ $book->title }}</td>
                                 <td>{{ $book->writer->name }}</td>
                                 <td>{{ $book->genre }}</td>
-                                <td>{{ 40 }}</td>
+                                <td>{{ $book->mylist()->count() }}</td>
                                 <td>3/5</td>
                             </tr>
                         @empty

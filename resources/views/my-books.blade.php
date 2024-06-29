@@ -159,7 +159,7 @@
                         </div>
                         @isset($uploaded)
                             <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                <h3 class="text-end fw-bold">40 Lus</h3>
+                                <h3 class="text-end fw-bold badge bg-success">{{ $book->mylist()->count() }} Lus</h3>
                             </div>
                         @endisset
                     </div>

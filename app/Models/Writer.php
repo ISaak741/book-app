@@ -22,7 +22,7 @@ class Writer extends Model
 
     public function mylist()
     {
-        return $this->hasMany(Mylist::class)->where('user_type', 'writer');
+        return $this->hasMany(Mylist::class, 'user_id')->where('user_type', 'writer');
     }
     public function plans()
     {

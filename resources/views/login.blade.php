@@ -20,7 +20,7 @@
             <img src="{{ asset('img/ghezyid.jpg') }}" class="d-block mx-auto" width="150" height="45"
                 alt="" />
             <div class="text-center mt-3">
-                <h3>Créer votre compte</h3>
+                <h3>Connexion</h3>
                 <p class="f-s-3 mt-3 fw-lighter">
                     @switch($type)
                         @case('reader')
@@ -29,6 +29,10 @@
 
                         @case('writer')
                             {{ "Connectez-vous pour publier vos livres et gérer votre compte d'auteur." }}
+                        @break
+
+                        @default
+                            {{ "Connectez-vous en tant qu'administrateur pour afficher le flux de données dans votre application." }}
                         @break
                     @endswitch
                 </p>

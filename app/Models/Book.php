@@ -21,4 +21,9 @@ class Book extends Model
     {
         return $this->belongsTo(Writer::class);
     }
+
+    public function mylist()
+    {
+        return $this->hasMany(Mylist::class);
+    }
 }

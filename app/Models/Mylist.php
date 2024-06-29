@@ -11,13 +11,17 @@ class Mylist extends Model
     protected $fillable = [
         'book_id',
         'user_id',
-        'writer_id',
         'user_type',
     ];
 
     public function writer()
     {
-        return $this->belongsTo(Writer::class);
+        return $this->belongsTo(Writer::class)->where('user_type', 'writer');
+    }
+
+    public function reader()
+    {
+        return $this->belongsTo(Reader::class, 'user_id')->where('user_type', 'reader');
     }
 
     public function book()

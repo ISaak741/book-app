@@ -29,7 +29,7 @@ class BookController extends Controller
             'description' => $request->input('description'),
             'file' => "books/$fileName",
             'picture' => "covers/$pictureName",
-            'writer_id' => 1,
+            'writer_id' => session()->get('id'),
         ]);
         return redirect()->route('book.upload.submit')->with('success', "$book->title a été bien téléverser");
     }

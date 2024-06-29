@@ -15,8 +15,7 @@ return new class extends Migration
         Schema::create('mylists', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->foreignId('writer_id')->constrained()->onDelete('cascade');
-            $table->foreignId('book_id')->constrained()->onDelete('cascade');
+            $table->integer('book_id');
             $table->string('user_type');
             $table->timestamps();
         });
