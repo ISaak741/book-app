@@ -13,4 +13,14 @@ class Reader extends Model
         'email',
         'password',
     ];
+
+    public function mylist()
+    {
+        return $this->hasMany(Mylist::class, 'user_id')->where('user_type', 'reader');
+    }
+
+    public function plans()
+    {
+        return $this->hasMany(Plan::class, 'userId')->where('userType', 'reader');
+    }
 }

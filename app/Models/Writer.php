@@ -19,4 +19,13 @@ class Writer extends Model
     {
         return $this->hasMany(Book::class);
     }
+
+    public function mylist()
+    {
+        return $this->hasMany(Mylist::class)->where('user_type', 'writer');
+    }
+    public function plans()
+    {
+        return $this->hasMany(Plan::class, 'userId')->where('userType', 'writer');
+    }
 }

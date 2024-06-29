@@ -105,46 +105,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>John Pill</td>
-                            <td>John-pill@gmail.com</td>
-                            <td>0553322110</td>
-                            <td>2</td>
-                            <td>
-                                <div class="badge bg-danger">Gratuit</div>
-                            </td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Carl Peter</td>
-                            <td>carl-peter@gmail.com</td>
-                            <td>0553322111</td>
-                            <td>2</td>
-                            <td>
-                                <div class="badge bg-danger">Gratuit</div>
-                            </td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Stiwart Mill</td>
-                            <td>stiwart-mill@gmail.com</td>
-                            <td>0553322112</td>
-                            <td>10</td>
-                            <td>
-                                <div class="badge bg-success">Basique</div>
-                            </td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>David Auth</td>
-                            <td>david-auth@gmail.com</td>
-                            <td>0553322113</td>
-                            <td>15</td>
-                            <td>
-                                <div class="badge bg-warning">Premium</div>
-                            </td>
-                            <td>10</td>
-                        </tr>
+                        @forelse ($writers as $writer)
+                            <tr>
+                                <td>{{ $writer->name }}</td>
+                                <td>{{ $writer->email }}</td>
+                                <td>{{ $writer->phone }}</td>
+                                <td>{{ $writer->books()->count() }}</td>
+                                @php
+                                    $planType = $writer->plans()->first()->planType;
+                                @endphp
+                                <td>
+                                    <div
+                                        class="badge {{ $planType == 'Gratuit' ? 'bg-danger' : ($planType == 'Basique' ? 'bg-success' : 'bg-warning') }} ">
+                                        {{ $planType }}</div>
+                                </td>
+                                <td>{{ $writer->mylist()->count() }}</td>
+                            </tr>
+                        @empty
+                            <tr colspan="6">
+                                <div class="text-warning">0 ecrivains</div>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

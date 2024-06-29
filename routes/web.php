@@ -38,10 +38,10 @@ Route::group(['middleware' => 'onlyAuth'], function () {
 
 
     Route::prefix('/admin')->name('admin.')->group(function () {
-        Route::get('/statistics', [UIController::class, 'renderAdminStats'])->name('stats');
-        Route::get('/readers', [UIController::class, 'renderAdminReaders'])->name('readers');
-        Route::get('/writers', [UIController::class, 'renderAdminWriters'])->name('writers');
-        Route::get('/books', [UIController::class, 'renderAdminBooks'])->name('books');
+        Route::get('/statistics', [AdminController::class, 'renderStatistics'])->name('stats');
+        Route::get('/readers', [AdminController::class, 'renderReaders'])->name('readers');
+        Route::get('/writers', [AdminController::class, 'renderWriters'])->name('writers');
+        Route::get('/books', [AdminController::class, 'renderBooks'])->name('books');
     });
 
     Route::get('/book/read/{id}', [BookController::class, 'renderReadView'])->name('book.readNow');

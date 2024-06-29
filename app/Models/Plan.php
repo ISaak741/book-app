@@ -15,4 +15,9 @@ class Plan extends Model
         'userType',
         'userId',
     ];
+
+    public function writer()
+    {
+        return $this->belongsTo(Writer::class, 'userId');
+    }
 }

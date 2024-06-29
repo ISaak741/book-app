@@ -83,62 +83,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
-                        <tr>
-                            <td>Wolf Hunter</td>
-                            <td>Georges Millain</td>
-                            <td>Horror</td>
-                            <td>250</td>
-                            <td>3.5/5</td>
-                        </tr>
+                        @forelse ($books as $book)
+                            <tr>
+                                <td>{{ $book->title }}</td>
+                                <td>{{ $book->writer->name }}</td>
+                                <td>{{ $book->genre }}</td>
+                                <td>{{ 40 }}</td>
+                                <td>3/5</td>
+                            </tr>
+                        @empty
+                            <tr colspan="5">
+                                <div class="text-warning">0 livres</div>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

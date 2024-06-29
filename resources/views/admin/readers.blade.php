@@ -82,38 +82,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>John Pill</td>
-                            <td>John-pill@gmail.com</td>
-                            <td>
-                                <div class="badge bg-danger">Gratuit</div>
-                            </td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Carl Peter</td>
-                            <td>carl-peter@gmail.com</td>
-                            <td>
-                                <div class="badge bg-danger">Gratuit</div>
-                            </td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Stiwart Mill</td>
-                            <td>stiwart-mill@gmail.com</td>
-                            <td>
-                                <div class="badge bg-success">Basique</div>
-                            </td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>David Auth</td>
-                            <td>david-auth@gmail.com</td>
-                            <td>
-                                <div class="badge bg-warning">Premium</div>
-                            </td>
-                            <td>15</td>
-                        </tr>
+                        @forelse ($readers as $reader)
+                            <tr>
+                                <td>{{ $reader->name }}</td>
+                                <td>{{ $reader->email }}</td>
+                                @php
+                                    $planType = $reader->plans()->first()->planType;
+                                @endphp
+                                <td>
+                                    <div
+                                        class="badge {{ $planType == 'Gratuit' ? 'bg-danger' : ($planType == 'Basique' ? 'bg-success' : 'bg-warning') }}">
+                                        {{ $planType }}</div>
+                                </td>
+                                <td>{{ $reader->mylist()->count() }}</td>
+                            </tr>
+                        @empty
+                            <tr colspan="4">
+                                <div class="text-warning">0 lisuers</div>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
