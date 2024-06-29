@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Models\Mylist;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -32,15 +33,28 @@ class BookController extends Controller
         ]);
         return redirect()->route('book.upload.submit')->with('success', "$book->title a été bien téléverselr");
     }
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $query = $request->input('query');
         $books = Book::where('title', 'LIKE', '%' . $query . '%')->get();
         return response()->json([
             'books' => $books
         ]);
     }
-    public function show($id){
+    public function show($id)
+    {
         $book = Book::where('id', $id)->first();
-        return view('book-details',['book'=>$book]);
+        $my_list = Mylist::where('user_id', session('id'))
+            ->where('user_type', session('userType'))
+            ->where('book_id', $id)
+            ->first();
+        $exist = !is_null($my_list);
+        return view('book-details', ['book' => $book, 'exist' => $exist]);
+    }
+
+    public function renderReadView($id)
+    {
+        $book = Book::find($id)->file;
+        return view('book-read', compact('book'));
     }
 }

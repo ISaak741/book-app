@@ -154,6 +154,8 @@
                                         <i class="bi bi-star text-secondary"></i>
                                     </div>
                                 @endisset
+                                <a href="{{ route('book.readNow', ['id' => $book->id]) }}"
+                                    class="btn bg-green px-4 mt-5 text-white shadow fw-bold">Lire</a>
                             </div>
                         </div>
                         @isset($uploaded)

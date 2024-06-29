@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+    <script defer src="{{ asset('js/animation.js') }}"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
@@ -99,7 +100,7 @@
     <main>
         <section class="container">
             @if (session()->has('message'))
-                <div class="alert alert-danger my-3">
+                <div class="alert alert-danger my-3" alert>
                     {{ session('message') }}
                 </div>
             @endif
@@ -118,13 +119,18 @@
                                 {{ $book->description }}
                             </p>
                             <div>
-                                <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                    <button class="btn bg-green px-4 mt-5 text-white shadow fw-bold">
-                                        Ajouter
-                                    </button>
-                                </form>
+                                @if ($exist == 'true')
+                                    <a href="{{ route('book.readNow', ['id' => $book->id]) }}"
+                                        class="btn bg-green px-4 mt-5 text-white shadow fw-bold">Lire</a>
+                                @else
+                                    <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                        <button class="btn bg-green px-4 mt-5 text-white shadow fw-bold">
+                                            Ajouter
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                             <div class="mt-4 fs-4">
                                 <i class="bi bi-star-fill text-green"></i><i class="bi bi-star-fill text-green"></i><i
