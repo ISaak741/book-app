@@ -27,7 +27,6 @@ class ReaderController extends Controller
         ]);
 
         session()->remove('password');
-        session()->remove('planType');
         session()->put('id', $reader->id);
         session()->put('auth', true);
         session()->put('userType', 'reader');
@@ -55,13 +54,19 @@ class ReaderController extends Controller
 
         if ($reader == null)
             return redirect()->route('login.form', ['type' => 'reader'])->with('message', 'invalide pseudo ou/et mot de pass');
-        else
-            session([
-                'id' =>  $reader->id,
-                'auth' => true,
-                'userType' => 'reader',
-                'name' => $reader->name,
-            ]);
+
+        $plan = Plan::where('userId', $reader->id)
+            ->where('userType', 'reader')
+            ->first();
+
+        session([
+            'id' =>  $reader->id,
+            'auth' => true,
+            'userType' => 'reader',
+            'name' => $reader->name,
+            'planType' => $plan->planType
+        ]);
+
 
         return redirect()->route('home');
     }

@@ -120,8 +120,11 @@
                             </p>
                             <div>
                                 @if ($exist == 'true')
-                                    <a href="{{ route('book.readNow', ['id' => $book->id]) }}"
-                                        class="btn bg-green px-4 mt-5 text-white shadow fw-bold">Lire</a>
+                                    <a href="" class="btn bg-green px-4 mt-5 text-white shadow fw-bold">Lire</a>
+                                @elseif($show == false)
+                                    <button class="btn bg-danger px-4 mt-5 text-white shadow fw-bold">
+                                        Vous avez atteint le nombre maximum de livres autorisés par votre plan actuel.
+                                    </button>
                                 @else
                                     <form id="add-to-list-form" action="{{ route('mylist.add') }}" method="POST">
                                         @csrf

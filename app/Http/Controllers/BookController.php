@@ -49,7 +49,21 @@ class BookController extends Controller
             ->where('book_id', $id)
             ->first();
         $exist = !is_null($my_list);
-        return view('book-details', ['book' => $book, 'exist' => $exist]);
+        $show = true;
+        $count = Mylist::where('user_id', session('id'))
+            ->where('user_type', session('userType'))
+            ->count();
+
+        if (session('planType') == 'Gratuit') {
+            if ($count >= 2) {
+                $show = false;
+            }
+        } else if (session('planType') == 'Basique') {
+            if ($count >= 20) {
+                $show = false;
+            }
+        }
+        return view('book-details', ['book' => $book, 'exist' => $exist, 'show' => $show]);
     }
 
     public function renderReadView($id)

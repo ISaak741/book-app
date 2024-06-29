@@ -29,7 +29,6 @@ class WriterController extends Controller
         ]);
 
         session()->remove('password');
-        session()->remove('planType');
         session()->put('id', $writer->id);
         session()->put('auth', true);
         session()->put('userType', 'writer');
@@ -57,13 +56,17 @@ class WriterController extends Controller
 
         if ($writer == null)
             return redirect()->route('login.form', ['type' => 'writer'])->with('message', 'invalide pseudo ou/et mot de pass');
-        else
-            session([
-                'id' => $writer->id,
-                'auth' => true,
-                'userType' => 'writer',
-                'name' => $writer->name,
-            ]);
+
+        $plan = Plan::where('userId', $writer->id)
+            ->where('userType', 'writer')
+            ->first();
+        session([
+            'id' => $writer->id,
+            'auth' => true,
+            'userType' => 'writer',
+            'name' => $writer->name,
+            'planType' => $plan->planType,
+        ]);
 
         return redirect()->route('home');
     }
