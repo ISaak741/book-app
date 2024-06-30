@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector(".form-control");
     const animeCheckbox = document.getElementById("animeCheckbox");
     const enfantCheckbox = document.getElementById("enfantCheckbox");
-    const romaneCheckbox = document.getElementById("romaneCheckbox");
-    const horrorCheckbox = document.getElementById("horrorCheckbox");
+    const romanCheckbox = document.getElementById("romanCheckbox");
+    const horeurCheckbox = document.getElementById("horeurCheckbox");
     const histoireCheckbox = document.getElementById("histoireCheckbox");
     const arabicCheckbox = document.getElementById("arabeCheckbox");
     const englishCheckbox = document.getElementById("anglaisCheckbox");
@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (animeCheckbox.checked) {
             selectedGenres.push("anime");
         }
-        if (horrorCheckbox.checked) {
-            selectedGenres.push("horror");
+        if (horeurCheckbox.checked) {
+            selectedGenres.push("horeur");
         }
         if (enfantCheckbox.checked) {
             selectedGenres.push("enfant");
         }
-        if (romaneCheckbox.checked) {
-            selectedGenres.push("romane");
+        if (romanCheckbox.checked) {
+            selectedGenres.push("roman");
         }
         if (histoireCheckbox.checked) {
             selectedGenres.push("histoire");
@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     animeCheckbox.addEventListener("change", updateResults);
     enfantCheckbox.addEventListener("change", updateResults);
     histoireCheckbox.addEventListener("change", updateResults);
-    horrorCheckbox.addEventListener("change", updateResults);
-    romaneCheckbox.addEventListener("change", updateResults);
+    horeurCheckbox.addEventListener("change", updateResults);
+    romanCheckbox.addEventListener("change", updateResults);
     arabicCheckbox.addEventListener("change", updateResults);
     englishCheckbox.addEventListener("change", updateResults);
     frenchCheckbox.addEventListener("change", updateResults);

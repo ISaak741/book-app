@@ -140,7 +140,7 @@
                             <div class="card-body">
                                 <h2 class="card-title fw-bold">{{ $book->title }}</h2>
                                 <p class="text-body-secondary fs-3">{{ $book->genre }}</p>
-                                <p class="fs-6">{{ $book->language }}</p>
+                                <p class="fs-6">{{ $book->language->name }}</p>
                                 <p class="card-text mt-3 text-dark">
                                     {{ $book->description }}
                                 </p>
@@ -171,7 +171,7 @@
         </div>
     </main>
     <footer
-        class="bg-green-secondary d-flex justify-content-center w-100 align-items-center sticky-bottom position-sticky"
+        class="bg-green-secondary d-flex justify-content-center w-100 align-items-center fixed-bottom position-fixed"
         style="height: 80px; margin-top: 10rem !important; ">
         <div class="container d-flex align-items-center justify-content-center">
             <p class="text-white mt-2">@2024 Ghezyid eBook</p>

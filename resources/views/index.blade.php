@@ -24,20 +24,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {{-- <form class="input-group ms-5" style="width: 50%" role="search">
-                    <select class="form-select">
-                        <option value="">Catégorie</option>
-                        <option value="">Fiction</option>
-                        <option value="">Science Fiction</option>
-                        <option value="">Young Adult</option>
-                        <option value="">Children's Books</option>
-                    </select>
-                    <input class="form-control w-50" type="search" placeholder="Titre du livre" aria-label="Search" />
-                    <button class="btn bg-light" type="submit">
-                        <i class="bi bi-search text-success"></i>
-                    </button>
-                </form> --}}
-
                 <ul class="navbar-nav ms-auto">
                     @if (session('auth'))
                         @if (session('userType') == 'writer')
@@ -138,90 +124,28 @@
         <section class="my-5 py-4 container">
             <h5 class="text-center text-green fw-bold mb-5">Nos Catégories</h5>
             <div class="row g-2">
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/anime.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Anime</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/romain.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column justify-content-between">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Romain</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
+                @foreach ($categories as $category)
+                    <div class="col-4">
+                        <div class="p-2 border border-1 rounded-1 d-flex">
+                            <div class="category-img">
+                                <img src="{{ asset('storage/' . $category?->picture) }}" width="120"
+                                    height="120" />
+                            </div>
+                            <div class="category-content mx-auto d-flex flex-column">
+                                <h6 class="pt-3 text-secondary fw-bold f-s-5">{{ $category->name }}</h6>
+                                <p class="f-s-1 mt-auto text-secondary mb-0">
+                                    {{ "$category->books_count Livres Disponible" }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/nutrition.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column justify-content-between">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Nutrition</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/sport.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column justify-content-between">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Sport</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/histoire.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column justify-content-between">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Histoire</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="p-2 border border-1 rounded-1 d-flex">
-                        <div class="category-img">
-                            <img src="./img/enfant.jpg" width="120" height="120" />
-                        </div>
-                        <div class="category-content mx-auto d-flex flex-column justify-content-between">
-                            <h6 class="pt-3 text-secondary fw-bold f-s-5">Enfant</h6>
-                            <p class="f-s-1 mt-auto text-secondary mb-0">
-                                15 Livres Disponible
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="container">
+            {{-- <div class="container">
                 <button class="mt-4 mx-auto btn d-block">
                     <img src="./img/more.jpg" width="40" height="40" alt="" />
                 </button>
-            </div>
+            </div> --}}
             <div class="w-50 d-flex justify-content-center mx-auto my-5">
                 <img src="./img/line.png" width="700" height="5" />
             </div>

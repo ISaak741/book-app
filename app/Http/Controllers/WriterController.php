@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WriterRequest;
+use App\Models\Book;
 use App\Models\Plan;
 use App\Models\Writer;
 use Illuminate\Http\Request;
@@ -73,8 +74,7 @@ class WriterController extends Controller
 
     public function myBooks()
     {
-        $writer = Writer::find(session('id'));
-        $books = $writer->books()->get(['id', 'title', 'description', 'language', 'picture', 'genre']);
+        $books = Book::all()->where('writer_id', session()->get('id'));
         $uploaded = true;
         return view('my-books', compact('books', 'uploaded'));
     }

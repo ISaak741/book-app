@@ -10,8 +10,8 @@ class Book extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'genre',
-        'language',
+        'category_id',
+        'language_id',
         'description',
         'file',
         'picture',
@@ -20,6 +20,16 @@ class Book extends Model
     public function writer()
     {
         return $this->belongsTo(Writer::class);
+    }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function mylist()

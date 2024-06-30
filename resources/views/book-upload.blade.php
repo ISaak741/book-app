@@ -129,20 +129,17 @@
                     <div class="form-field mb-2">
                         <label class="form-label">Genre</label>
                         <select class="form-select" name="genre">
-                            <option value="Horror">Horror</option>
-                            <option value="Enfant">Enfant</option>
-                            <option value="Anime">Anime</option>
-                            <option value="Histoire">Histoire</option>
-                            <option value="Romane">Romane</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-field mb-2">
                         <label class="form-label">Langue</label>
                         <select class="form-select" name="language">
-                            <option value="arabe">Arabe</option>
-                            <option value="anglais">Anglais</option>
-                            <option value="francais">Français</option>
-                            <option value="espagnol">Espagnol</option>
+                            @foreach ($languages as $language)
+                                <option value="{{ $language->id }}">{{ $language->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

@@ -60,23 +60,17 @@ Route::group(['middleware' => 'onlyGuest'], function () {
     Route::get('/plan/{type}', [UIController::class, 'renderSubscriptionPlan'])->name('register.plan');
 });
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [UIController::class, 'renderHome'])->name('home');
 
 
-Route::get('/books', function () {
-    return view('books');
-})->name('books.search');
+Route::get('/books', [UIController::class, 'renderBooks'])->name('books.search');
 
 Route::get('/book/display', function () {
     return view('book-details');
 })->name('book.display');
 
 Route::get('/books/search', [BookController::class, 'search']);
-Route::get('mylist', function () {
-    return view('mes-livres');
-});
+
 Route::get('/books/my-books', [MylistController::class, 'showBooks'])->name('books.reading');
 Route::post('/mylist/add', [MylistController::class, 'addToList'])->name('mylist.add');
 Route::get('book/display/{id}', [BookController::class, 'show'])->name('book.show');

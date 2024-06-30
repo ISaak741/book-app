@@ -113,8 +113,8 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h2 class="card-title fw-bold">{{ $book->title }}</h2>
-                            <p class="text-body-secondary fs-3">{{ $book->genre }}</p>
-                            <p class="fs-6">{{ $book->language }}</p>
+                            <p class="text-body-secondary fs-3">{{ $book->category->name }}</p>
+                            <p class="fs-6">{{ $book->language->name }}</p>
                             <p class="card-text mt-3 text-dark">
                                 {{ $book->description }}
                             </p>

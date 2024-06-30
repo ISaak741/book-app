@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Plan;
 use App\Models\Reader;
 use App\Models\Writer;
@@ -51,14 +52,16 @@ class AdminController extends Controller
             $readers->groupBy('planType')->get('Basique')?->count() ?? 0
         ];
 
-        $books = Book::select('genre', DB::raw('COUNT(*) as count'))
-            ->groupBy('genre')
-            ->get();
+        $books = Category::withCount('books')->get();
+
         $genres = [];
         $items = [];
+
         foreach ($books as $book) {
-            $genres[] = $book->genre;
-            $items[] = $book->count;
+            if ($book->books_count != 0) {
+                $genres[] = $book->name;
+                $items[] = $book->books_count;
+            }
         }
         $books = [
             'categories' => $genres,

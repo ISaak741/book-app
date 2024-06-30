@@ -11,7 +11,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <script defer src="./js/search.js"></script>
+    <script defer src="{{ asset('js/search.js') }}"></script>
     <title>Document</title>
 </head>
 
@@ -110,46 +110,26 @@
                 <div id="categorie">
                     <h5 class="mt-5 fw-bold">Catégorie</h5>
                     <hr />
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="animeCheckbox">
-                        <label class="form-check-label" for="animeCheckbox">Anime</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="horrorCheckbox">
-                        <label class="form-check-label" for="horrorCheckbox">Horror</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="histoireCheckbox">
-                        <label class="form-check-label" for="histoireCheckbox">Histoire</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="enfantCheckbox">
-                        <label class="form-check-label" for="enfantCheckbox">Enfant</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="romaneCheckbox">
-                        <label class="form-check-label" for="romaneCheckbox">Romane</label>
-                    </div>
+                    @foreach ($categories as $category)
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input border-secondary"
+                                id="{{ strtolower($category->name) . 'Checkbox' }}" />
+                            <label class="form-check-label"
+                                for="{{ strtolower($category->name) . 'Checkbox' }}">{{ $category->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
                 <div id="language" class="mt-4">
                     <h5 class="mt-5 fw-bold">Language</h5>
                     <hr />
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="arabeCheckbox" />
-                        <label class="form-check-label" for="arabeCheckbox">Arabe</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="anglaisCheckbox" />
-                        <label class="form-check-label" for="anglaisCheckbox">Anglais</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="francaisCheckbox" />
-                        <label class="form-check-label" for="françaisCheckbox">Francais</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input border-secondary" id="espagnolCheckbox" />
-                        <label class="form-check-label" for="espagnolCheckbox">Espagnol</label>
-                    </div>
+                    @foreach ($languages as $language)
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input border-secondary"
+                                id="{{ strtolower($language->name) . 'Checkbox' }}" />
+                            <label class="form-check-label"
+                                for="{{ strtolower($language->name) . 'Checkbox' }}">{{ $language->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
         </section>
         <section class="col-9 row g-4 pb-5">

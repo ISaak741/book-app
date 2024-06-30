@@ -23,8 +23,8 @@ class BookRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:8|unique:books',
-            'genre' => 'required|string',
-            'language' => 'required|string',
+            'genre' => 'required',
+            'language' => 'required',
             'file' => 'required|file|mimes:pdf|max:10240',
             'picture' => 'required|file|mimes:png,jpg,jpeg',
             'description' => 'required|string|min:15',

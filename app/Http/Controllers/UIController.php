@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Language;
 use App\Models\Writer;
 use Illuminate\Http\Request;
 
@@ -19,26 +21,24 @@ class UIController extends Controller
     {
         return view('plans', compact('type'));
     }
+
+    public function renderHome()
+    {
+        $categories = Category::withCount('books')->get();
+        return view('index', compact('categories'));
+    }
+    public function renderBooks()
+    {
+        $categories = Category::all(['id', 'name']);
+        $languages = Language::all(['id', 'name']);
+
+        return view('books', compact('categories', 'languages'));
+    }
     public function renderBookUpload()
     {
-        return view('book-upload');
-    }
+        $categories = Category::all(['id', 'name']);
+        $languages = Language::all(['id', 'name']);
 
-    public function renderAdminStats()
-    {
-        return view('admin.stats');
-    }
-    public function renderAdminReaders()
-    {
-        return view('admin.readers');
-    }
-
-    public function renderAdminWriters()
-    {
-        return view('admin.writers');
-    }
-    public function renderAdminBooks()
-    {
-        return view('admin.books');
+        return view('book-upload', compact('categories', 'languages'));
     }
 }
