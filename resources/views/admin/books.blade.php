@@ -78,6 +78,7 @@
                             <th>Titre</th>
                             <th>Ecrivain</th>
                             <th>Caégorie</th>
+                            <th>Langue</th>
                             <th>N: Lecteur</th>
                             <th>Avis</th>
                         </tr>
@@ -88,12 +89,13 @@
                                 <td>{{ $book->title }}</td>
                                 <td>{{ $book->writer->name }}</td>
                                 <td>{{ $book->category->name }}</td>
+                                <td>{{ $book->language->name }}</td>
                                 <td>{{ $book->mylist()->count() }}</td>
                                 <td>3/5</td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="6">
                                     <div class="text-bg-warning text-center">0 livres</div>
                                 </td>
                             </tr>

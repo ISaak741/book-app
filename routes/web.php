@@ -61,6 +61,7 @@ Route::group(['middleware' => 'onlyGuest'], function () {
 });
 
 Route::get('/', [UIController::class, 'renderHome'])->name('home');
+Route::post('/', [UIController::class, 'storeComment'])->name('home.comment');
 
 
 Route::get('/books', [UIController::class, 'renderBooks'])->name('books.search');

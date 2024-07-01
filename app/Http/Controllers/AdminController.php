@@ -9,7 +9,6 @@ use App\Models\Plan;
 use App\Models\Reader;
 use App\Models\Writer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {

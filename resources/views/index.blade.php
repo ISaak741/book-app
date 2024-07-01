@@ -11,6 +11,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    @if (session()->has('message'))
+        <script defer src="{{ asset('js/animation.js') }}"></script>
+    @endif
     <title>Document</title>
 </head>
 
@@ -76,6 +79,9 @@
         </div>
     </nav>
     <main>
+        @if (session()->has('message'))
+            <div class="alert alert-success" alert> {{ session()->get('message') }} </div>
+        @endif
         <header class="d-flex justify-content-between align-items-center"
             style="height: 100vh !important ; padding-bottom: 10rem">
             <div class="w-50">
@@ -141,11 +147,6 @@
                     </div>
                 @endforeach
             </div>
-            {{-- <div class="container">
-                <button class="mt-4 mx-auto btn d-block">
-                    <img src="./img/more.jpg" width="40" height="40" alt="" />
-                </button>
-            </div> --}}
             <div class="w-50 d-flex justify-content-center mx-auto my-5">
                 <img src="./img/line.png" width="700" height="5" />
             </div>
@@ -245,7 +246,7 @@
         </section>
         <section class="my-5 py-4 container">
             <h5 class="text-center text-green fw-bold mb-5">Contactez-nous</h5>
-            <form class="d-flex p-4 rounded-4"
+            <div class="d-flex p-4 rounded-4"
                 style="
             background: url('./img/contact-bg.png') !important ;
             background-size: cover !important;
@@ -264,15 +265,26 @@
                     </div>
                     <div class="f-s-2">@ 2024 Politique de confidentialité</div>
                 </div>
-                <div class="w-50">
+                <form method="POST" action="{{ route('home.comment') }}" class="w-50">
+                    @csrf
                     <h3 class="text-green mb-3 fw-bold">Formulaire de contact</h3>
-                    <input type="text" class="form-control mb-3" placeholder="Entrez votre nom" />
-                    <input type="email" class="form-control mb-3"
-                        placeholder="Entrez votre adresse e-mail valide" />
-                    <textarea class="form-control mb-3" id="" placeholder="Entrez votre message" rows="10"></textarea>
+                    <input type="text" name="name" class="form-control mb-3" placeholder="Entrez votre nom"
+                        value="{{ old('name') }}" />
+                    @error('name')
+                        <p class="text-danger"> {{ $message }} </p>
+                    @enderror
+                    <input type="email" name="email" class="form-control mb-3"
+                        placeholder="Entrez votre adresse e-mail valide" value="{{ old('email') }}" />
+                    @error('email')
+                        <p class="text-danger"> {{ $message }} </p>
+                    @enderror
+                    <textarea class="form-control mb-3" name="message" placeholder="Entrez votre message" rows="10">{{ old('message') }}</textarea>
+                    @error('message')
+                        <p class="text-danger"> {{ $message }} </p>
+                    @enderror
                     <button class="btn bg-white custom-shadow px-4">Soumettre</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </section>
     </main>
     <footer class="bg-green-secondary d-flex justify-content-center align-items-center" style="height: 80px">
