@@ -5,7 +5,6 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UIController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\WriterController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MylistController;
 
@@ -44,7 +43,7 @@ Route::group(['middleware' => 'onlyAuth'], function () {
         Route::get('/books', [AdminController::class, 'renderBooks'])->name('books');
     });
 
-    Route::get('/book/read/{id}', [BookController::class, 'renderReadView'])->name('book.readNow');
+    Route::get('/book/read/{id}', [BookController::class, 'renderReadView'])->name('book.readNow')->middleware('canReadIt');
 });
 
 Route::group(['middleware' => 'onlyGuest'], function () {

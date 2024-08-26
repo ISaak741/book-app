@@ -80,7 +80,8 @@
     </nav>
     <main>
         @if (session()->has('message'))
-            <div class="alert alert-success" alert> {{ session()->get('message') }} </div>
+            <div class="alert {{ session()->get('style') ?? 'alert-success' }}" alert> {{ session()->get('message') }}
+            </div>
         @endif
         <header class="d-flex justify-content-between align-items-center"
             style="height: 100vh !important ; padding-bottom: 10rem">

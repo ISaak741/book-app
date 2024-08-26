@@ -34,7 +34,7 @@ class BookController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $books = Book::where('title', 'LIKE', '%' . $query . '%')->get();
+        $books = Book::with(['category', 'language'])->where('title', 'LIKE', '%' . $query . '%')->get();
         return response()->json([
             'books' => $books
         ]);

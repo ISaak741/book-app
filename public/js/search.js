@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let filteredBooks = booksData.filter((book) => {
             if (
                 selectedGenres.length > 0 &&
-                !selectedGenres.includes(book.genre.toLowerCase())
+                !selectedGenres.includes(book.category.name.toLowerCase())
             ) {
                 return false;
             }
             if (
                 selectedLanguages.length > 0 &&
-                !selectedLanguages.includes(book.language.toLowerCase())
+                !selectedLanguages.includes(book.language.name.toLowerCase())
             ) {
                 return false;
             }
