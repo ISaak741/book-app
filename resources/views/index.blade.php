@@ -83,9 +83,9 @@
             <div class="alert {{ session()->get('style') ?? 'alert-success' }}" alert> {{ session()->get('message') }}
             </div>
         @endif
-        <header class="d-flex justify-content-between align-items-center"
+        <header class="d-flex flex-column flex-md-row justify-content-between align-items-center"
             style="height: 100vh !important ; padding-bottom: 10rem">
-            <div class="w-50">
+            <div class="min-w-100">
                 <div class="container mt-5 p-5 ms-5">
                     <h1 class="mt-5 fw-bolder text-blue">
                         Bienvenue sur Ghezyid eBook
@@ -110,17 +110,21 @@
             </div>
         </header>
         <section class="container mb-5">
-            <div class="d-flex justify-content-between align-items-center container px-4">
-                <div class="text-bg-white rounded rounded-4 px-5 py-4 custom-shadow">
+            <div class="row g-2 d-flex justify-content-between align-items-center container px-4">
+                <div
+                    class="col-md-4 text-bg-white rounded rounded-4 px-5 py-4 custom-shadow d-flex justify-content-center align-items.center">
                     <h6 class="py-2 px-5 text-green f-s-5">Nos catégories</h6>
                 </div>
-                <div class="text-bg-white rounded rounded-4 px-5 py-4 custom-shadow">
+                <div
+                    class="col-md-4 text-bg-white rounded rounded-4 px-5 py-4 custom-shadow d-flex justify-content-center align-items.center">
                     <h6 class="py-2 px-5 text-green f-s-5">A propos de nous</h6>
                 </div>
-                <div class="text-bg-white rounded rounded-4 px-5 py-4 custom-shadow">
+                <div
+                    class="col-md-4 text-bg-white rounded rounded-4 px-5 py-4 custom-shadow d-flex justify-content-center align-items.center">
                     <h6 class="py-2 px-5 text-green f-s-5">Contactez-nous</h6>
                 </div>
             </div>
+
             <div class="d-flex justify-content-center align-items-center" style="margin: 8rem 0 7rem">
                 <div class="w-50 d-flex justify-content-center">
                     <img src="./img/line.png" width="700" height="5" />
@@ -132,7 +136,7 @@
             <h5 class="text-center text-green fw-bold mb-5">Nos Catégories</h5>
             <div class="row g-2">
                 @foreach ($categories as $category)
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <div class="p-2 border border-1 rounded-1 d-flex">
                             <div class="category-img">
                                 <img src="{{ asset('storage/' . $category?->picture) }}" width="120"
@@ -155,12 +159,11 @@
         <section class="my-5 py-4 container">
             <div>
                 <h5 class="text-center text-green fw-bold mb-5">A propos de nous</h5>
-                <div class="d-flex align-items-center rounded-2 custom-shadow p-4">
+                <div class="d-flex flex-column flex-md-row align-items-center rounded-2 custom-shadow p-4">
                     <div class="porpos-img d-flex justify-content-center w-25">
                         <img src="./img/logo.jpg" width="150" height="200" alt="" />
                     </div>
-                    <div
-                        class="justify-content-center d-flex border border-end-0 border-top-0 border-bottom-0 py-2 px-5 w-75">
+                    <div class="justify-content-center d-flex custom-border py-2 w-75">
                         <div class="wrapper">
                             <h1 class="text-green fw-bold">Ghezyid eBook</h1>
                             <div class="f-s-2 text-secondary">
@@ -247,13 +250,13 @@
         </section>
         <section class="my-5 py-4 container">
             <h5 class="text-center text-green fw-bold mb-5">Contactez-nous</h5>
-            <div class="d-flex p-4 rounded-4"
+            <div class="d-flex p-4 rounded-4 d-flex flex-column-reverse flex-md-row"
                 style="
             background: url('./img/contact-bg.png') !important ;
             background-size: cover !important;
             background-repeat: no-repeat !important;
           ">
-                <div class="w-50 align-self-end">
+                <div class="w-50 mt-5 align-self-center align-self-md-end">
                     <div class="wrapper" style="margin-bottom: 8rem !important">
                         <div class="mb-4">
                             <h5 class="text-green fw-bold">Emplacement</h5>
@@ -266,7 +269,7 @@
                     </div>
                     <div class="f-s-2">@ 2024 Politique de confidentialité</div>
                 </div>
-                <form method="POST" action="{{ route('home.comment') }}" class="w-50">
+                <form method="POST" action="{{ route('home.comment') }}" class="w-50 FORM">
                     @csrf
                     <h3 class="text-green mb-3 fw-bold">Formulaire de contact</h3>
                     <input type="text" name="name" class="form-control mb-3" placeholder="Entrez votre nom"
@@ -295,10 +298,32 @@
     </footer>
 </body>
 
-</html>
+<script>
+    function updateBorderClasses() {
+        const element = document.querySelector('.custom-border');
+        const form = document.querySelector('.FORM')
+        const md = 768
+        // Check if the window width is >= 768px (medium screens and above)
+        if (window.innerWidth >= md) {
+            // Add the classes when on medium screen or above
+            element.classList.add('border', 'border-end-0', 'border-top-0', 'border-bottom-0', 'px-5');
+            form.classList.add('w-75')
+            form.classList.remove('w-100')
 
-<!--
-  more catgories :
-    - Science
-    - Politique
--->
+        } else {
+            // Remove the classes when below medium screen size
+            element.classList.remove('border', 'border-end-0', 'border-top-0', 'border-bottom-0', 'px-5');
+            form.classList.remove('w-75')
+            form.classList.add('w-100')
+        }
+    }
+
+    // Initial check when the page loads
+    updateBorderClasses();
+
+    // Update classes on window resize
+    window.addEventListener('resize', updateBorderClasses);
+</script>
+
+
+</html>
