@@ -25,26 +25,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!--
-            <form class="input-group ms-5" style="width: 50%" role="search">
-            <select class="form-select">
-              <option value="">Catégorie</option>
-              <option value="">Fiction</option>
-              <option value="">Science Fiction</option>
-              <option value="">Young Adult</option>
-              <option value="">Children's Books</option>
-            </select>
-            <input
-              class="form-control w-50"
-              type="search"
-              placeholder="Titre du livre"
-              aria-label="Search"
-            />
-            <button class="btn bg-light" type="submit">
-              <i class="bi bi-search text-success"></i>
-            </button>
-          </form>
-           -->
                 <ul class="navbar-nav ms-auto">
                     @if (session('auth'))
                         @if (session('userType') == 'writer')
@@ -97,7 +77,7 @@
         </div>
     </nav>
     <main class="row">
-        <section class="col-3 bg-lighter shadow pb-5">
+        <section class="col-md-3 col-5 bg-lighter shadow pb-5">
             <div class="px-4">
                 <div style="margin-top: 5rem !important">
                     <div class="input-group shadow-sm">
@@ -132,7 +112,7 @@
                     @endforeach
                 </div>
         </section>
-        <section class="col-9 row g-4 pb-5">
+        <section class="col-md-9 col-7 row g-4 pb-5">
 
         </section>
     </main>

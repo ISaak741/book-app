@@ -92,13 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
     espagnolCheckbox.addEventListener("change", updateResults);
 
     function displayResults(books) {
-        const section = document.querySelector(".col-9.row.g-4.pb-5");
+        const section = document.querySelector(".col-md-9.row.g-4.pb-5");
         section.innerHTML = "";
         books.forEach((book) => {
             const bookCard = document.createElement("div");
-            bookCard.className = "col-4";
+            bookCard.className = "col-md-4";
             bookCard.innerHTML = `
-                <a class="col-4 text-decoration-none" href="book/display/${book.id}">
+                <a class="col-md-4 text-decoration-none" href="book/display/${book.id}">
                     <div class="card shadow-lg rounded-2 border border-1 overflow-hidden">
                         <div class="p-2 bg-white d-flex justify-content-center align-items-center">
                             <img src="storage/${book.picture}" width="200" height="300" />
